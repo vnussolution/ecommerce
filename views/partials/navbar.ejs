@@ -1,0 +1,63 @@
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+   <div class="container">
+      <div class="navbar-header ">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="/">Ecommerce</a>
+
+         <% if(user === 'admin') {%>
+            <ul class="nav navbar-nav">
+               <li><a href="/add-category"> add category</a></li>
+            </ul>
+         <% }%>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+         <form action="/search" class="navbar-form navbar-left" method="post">
+            <div class="form-group">
+               <input type="text" name="query" class="form-control" placeholder="search..."/>
+
+               <button class="btn btn-default" type="submit">Submit</button>
+            </div>
+         </form>
+         <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="dropdown" class="dropdown-toggle">Categories</a>
+               <ul class="dropdown-menu">
+                  <% for( i =0; i < categories.length; i++){%>
+                     <li><a href="/products/<%= categories[i]._id%>"><%=  categories[i].name %></a></li>
+                  <% }%>
+               </ul>
+            </li>
+
+            <% if(!user) {%>
+            <li><a href="#" data-toggle="dropdown" class="dropdown-toggle">Signup/Login</a>
+               <ul class="dropdown-menu">
+                  <li><a href="/signup">signup</a></li>
+                  <li><a href="/login">login</a></li>
+               </ul>
+            </li>
+            <% } else {%>
+            <li><a href="#" data-toggle="dropdown" class="dropdown-toggle"><%= user.profile.name%></a>
+               <ul class="dropdown-menu">
+                  <li><a href="/logout">Logout</a></li>
+                  <li><a href="/profile">Profile</a></li>
+               </ul>
+            </li>
+            <%}%>
+
+            <% if(user) {%>
+               <li><a href="/cart" class="glyphicon glyphicon-shopping-cart"><span class="badge"><%= cart%></span></a></li>
+            <% } else {%>
+               <li><a href="/cart" class="glyphicon glyphicon-shopping-cart"><span class="badge">0</span></a></li>
+            <%}%>
+         </ul>
+
+
+
+      </div><!--/.navbar-collapse -->
+   </div>
+</nav>

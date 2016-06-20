@@ -1,0 +1,54 @@
+<% layout('layout') %>
+
+<div class="jumbotron">
+   <div class="container">
+      <h2>This website is a showcase for ecommerce website built with Nodejs + MongoDB</h2>
+      <h3>It is a work in progress. Next step would be to apply SASS to it </h3>
+      <div class="row">
+         <div class="col-sm-6 col-sm-offset-3">
+            <div class="input-group col-sm-12">
+               <input id='search' placeholder="search for product..." type="text" class="form-control input-lg"/>
+               <span class="input-group-btn">
+                  <button id="btnSearch" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-search"></i></button>
+               </span>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="container">
+   <div id="countResults"></div>
+   <div class="row body" id="searchResults">
+      <div class="col-md-12">
+         <% for (var i = 0; i < products.length; i++) { %>
+         <div class="col-md-4">
+            <a href="/product/<%= products[i]._id %>">
+               <div class="thumbnail">
+                  <img src="<%= products[i].image %>" alt=""/>
+                  <div class="caption">
+                     <h3><%= products[i].name %></h3>
+                     <p><%= products[i].category.name %></p>
+                     <p><%= products[i].price %></p>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <% } %>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-12">
+         <ul class="pagination text-center">
+            <% for( var i = 1; i <= pages; i++) { %>
+            <% if(i === 1) { %>
+            <li class="<%= (i == activePage) ? 'active' : '1' %>"><a href="/"><%= i %></a></li>
+            <% } else { %>
+            <li class="<%= (i == activePage) ? 'active' : '2' %>"><a href="/page/<%= i %>"><%= i %></a></li>
+
+            <% } %>
+            <% } %>
+         </ul>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,26 @@
+<% layout('layout') %>
+
+<div class="row body">
+   <div class="col-lg-6 col-md-offset-3">
+      <form action="" method="post">
+
+         <% if(message.length > 0) { %>
+         <div class="alert alert-success alert-dismissible">
+            <button class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true" > X </span>
+            </button>
+            <%= message %>
+         </div>
+
+         <% } %>
+         <h1>Add category</h1>
+         <div class="form-group">
+            <label for="name">Category : </label>
+            <input type="text" name="categoryName" class="form-control"/>
+         </div>
+
+         <input type="submit" class="btn btn-primary" value="submit form"/>
+
+      </form>
+   </div>
+</div>

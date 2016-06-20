@@ -1,0 +1,40 @@
+
+body{
+   padding:100px 20px 0 20px;
+   //height:100%;
+}
+
+nav.navbar {
+   margin:0;
+}
+
+nav .nav {
+   margin:0;
+   padding:0;
+}
+
+nav li{
+   //display: inline-block;
+}
+
+.empty-address {
+   color:red;
+   font-weight: 900;
+}
+
+
+.jumbotron {
+   margin-top:-30px;
+}
+
+.product-image {
+   width:100%;
+}
+
+.login-form {
+   height:auto;
+}
+
+.row.body {
+   height:80vh;
+}

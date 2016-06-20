@@ -1,0 +1,95 @@
+<% layout('layout') %>
+
+<div class="row body">
+   <div class="col-lg-6 col-md-offset-3">
+      <form action="" method="post">
+
+
+         <h1>Add category</h1>
+         <div class="form-group">
+            <label for="name">Category : </label>
+            <input type="text" name="categoryName" class="form-control"/>
+         </div>
+
+         <input type="submit" class="btn btn-primary" value="submit form"/>
+
+      </form>
+
+      <form method="post" class="form-horizontal">
+         <% if(message.length > 0) { %>
+         <div class="alert alert-success alert-dismissible">
+            <button class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true" > X </span>
+            </button>
+            <%= message %>
+         </div>
+
+         <% } %>
+         <fieldset>
+            <!-- Form Name -->
+            <legend>Add Product</legend>
+
+            <!-- product name input-->
+            <div class="form-group">
+               <label class="col-md-4 control-label" for="productName">Product name : </label>
+               <div class="col-md-4">
+                  <input id="productName" name="productName" type="password" placeholder="name" class="form-control input-md">
+                  <span class="help-block">help</span>
+               </div>
+            </div>
+
+            <!-- price input-->
+            <div class="form-group">
+               <label class="col-md-4 control-label" for="price">Product price</label>
+               <div class="col-md-4">
+                  <input id="price" name="price" type="text" placeholder="price" class="form-control input-md">
+                  <span class="help-block">help</span>
+               </div>
+            </div>
+
+            <!-- image url input-->
+            <div class="form-group">
+               <label class="col-md-4 control-label" for="imageURL">Text Input</label>
+               <div class="col-md-4">
+                  <input id="imageURL" name="imageURL" type="text" placeholder="imageURL" class="form-control input-md">
+                  <span class="help-block">help</span>
+               </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+               <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
+               <div class="col-md-4">
+                  <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+               </div>
+            </div>
+
+            <!-- Button Drop Down -->
+            <div class="form-group">
+               <label class="col-md-4 control-label" for="category">Category</label>
+               <div class="col-md-4">
+                  <div class="input-group">
+                     <input id="category" name="category" class="form-control" placeholder="category" type="text">
+                     <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                           category <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                           <% for(var i =0; i < categoryList.length; i++) {%>
+                              <li><a href="#"> <%= categoryList[i].name %></a></li>
+                           <li><input type="radio" id="ID" name="NAME" value="VALUE"><label for="ID">Label</label></li>
+                           <% }%>
+                           <li><a href="#">Option one</a></li>
+                           <li><a href="#">Option two</a></li>
+                           <li><a href="#">Option three</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </fieldset>
+      </form>
+
+   </div>
+</div>
